@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ExpensesTracker.Models
 {
-    public class Expenses
+    public class Expense
     {
         [Key]
         public int ItemId { get; set; }
