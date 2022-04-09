@@ -10,7 +10,7 @@ namespace ExpensesTracker.Models
 {
     public class ExpensesData : IExpenseService
     {
-        //ExpenseDBContext db = new ExpenseDBContext();
+        
         private ExpenseDBContext db;
 
         public ExpensesData(ExpenseDBContext _db)

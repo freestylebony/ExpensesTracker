@@ -9,7 +9,7 @@ namespace ExpensesTracker.Controllers
 {
     public class ExpenseController : Controller
     {
-       // ExpensesData objexpense = new ExpensesData();
+       
         private readonly IExpenseService expenseService;
 
         public ExpenseController(IExpenseService _expenseService)
