@@ -4,12 +4,19 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
+using ExpensesTracker.Interfaces;
 
 namespace ExpensesTracker.Models
 {
-    public class ExpensesData
+    public class ExpensesData : IExpenseService
     {
-        ExpenseDBContext db = new ExpenseDBContext();
+        //ExpenseDBContext db = new ExpenseDBContext();
+        private ExpenseDBContext db;
+
+        public ExpensesData(ExpenseDBContext _db)
+        {
+            db = _db;
+        }
         public IEnumerable<Expense> GetAllExpenses()
         {
             try
@@ -100,7 +107,7 @@ namespace ExpensesTracker.Models
         // To calculate last six months expense  
         public Dictionary<string, decimal> CalculateMonthlyExpense()
         {
-            ExpensesData objexpense = new ExpensesData();
+            //ExpensesData objexpense = new ExpensesData();
             List<Expense> lstEmployee = new List<Expense>();
 
             Dictionary<string, decimal> dictMonthlySum = new Dictionary<string, decimal>();
@@ -136,7 +143,7 @@ namespace ExpensesTracker.Models
         // To calculate last four weeks expense  
         public Dictionary<string, decimal> CalculateWeeklyExpense()
         {
-            ExpensesData objexpense = new ExpensesData();
+            //ExpensesData objexpense = new ExpensesData();
             List<Expense> lstEmployee = new List<Expense>();
 
             Dictionary<string, decimal> dictWeeklySum = new Dictionary<string, decimal>();

@@ -5,16 +5,17 @@ namespace ExpensesTracker.Data
 {
     public class ExpenseDBContext : DbContext
     {
-        public DbSet<Expense> Expenses { get; set; }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            if (!optionsBuilder.IsConfigured)
+        
+            public ExpenseDBContext(DbContextOptions<ExpenseDBContext> options)
+                : base(options)
             {
-
-                optionsBuilder.UseSqlServer(@"Server=(localdb)\\mssqllocaldb;Database=ExpensesDB;Trusted_Connection=True;MultipleActiveResultSets=true");
             }
-        }
+
+            public DbSet<ExpensesTracker.Models.Expense> Expenses { get; set; }
+
+        
 
     }
+
+    
 }
