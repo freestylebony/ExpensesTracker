@@ -35,7 +35,7 @@ namespace ExpensesTracker.Models
             List<Expense> exp = new List<Expense>();
             try
             {
-                exp = GetAllExpenses().ToList();
+                exp = (List<Expense>)GetAllExpenses();
                 return exp.Where(x => x.ItemName.IndexOf(searchString, StringComparison.OrdinalIgnoreCase) != -1);
             }
             catch
@@ -107,7 +107,7 @@ namespace ExpensesTracker.Models
         // To calculate last six months expense  
         public Dictionary<string, decimal> CalculateMonthlyExpense()
         {
-            //ExpensesData objexpense = new ExpensesData();
+            
             List<Expense> lstEmployee = new List<Expense>();
 
             Dictionary<string, decimal> dictMonthlySum = new Dictionary<string, decimal>();
@@ -143,7 +143,7 @@ namespace ExpensesTracker.Models
         // To calculate last four weeks expense  
         public Dictionary<string, decimal> CalculateWeeklyExpense()
         {
-            //ExpensesData objexpense = new ExpensesData();
+           
             List<Expense> lstEmployee = new List<Expense>();
 
             Dictionary<string, decimal> dictWeeklySum = new Dictionary<string, decimal>();
